@@ -1,5 +1,6 @@
 import { Loader } from '@googlemaps/js-api-loader';
 import './app.element.css';
+import * as mapStyle from '../assets/map-style.json';
 
 export class AppElement extends HTMLElement {
   public static observedAttributes = [];
@@ -10,19 +11,36 @@ export class AppElement extends HTMLElement {
       libraries: ['places'],
     });
 
-    const mapOptions = {
-      center: {
-        lat: 0,
-        lng: 0,
-      },
-      zoom: 4,
-      mapId: 'IDd660c40670540313',
-    };
-
     loader
       .load()
       .then((google) => {
-        new google.maps.Map(document.getElementById('map'), mapOptions);
+        const mapOptions = {
+          center: {
+            lat: 0,
+            lng: 0,
+          },
+          zoom: 4,
+          mapTypeControlOptions: {
+            mapTypeIds: [
+              'roadmap',
+              'satellite',
+              'hybrid',
+              'terrain',
+              'styled_map',
+            ],
+          },
+        };
+        const map = new google.maps.Map(
+          document.getElementById('map'),
+          mapOptions
+        );
+
+        const styledMapType = new google.maps.StyledMapType(mapStyle, {
+          name: 'My Style',
+        });
+
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
       })
       .catch((e) => {
         // do something
