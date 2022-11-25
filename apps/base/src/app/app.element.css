@@ -13,3 +13,13 @@
   font-size: large;
   cursor: pointer;
 }
+
+#sample {
+  height: auto;
+  width: 250px;
+  background-color: violet;
+  text-align: center;
+  color: white;
+  font-size: large;
+  margin-bottom: 60px;
+}

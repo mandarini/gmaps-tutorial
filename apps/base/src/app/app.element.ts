@@ -8,7 +8,7 @@ export class AppElement extends HTMLElement {
     const loader = new Loader({
       apiKey: 'AIzaSyAd1OipGv5JfLsgmMFpXXxnUEcf4Lth8yM',
       version: 'weekly',
-      libraries: ['places'],
+      libraries: ['places', 'drawing'],
     });
 
     loader
@@ -62,9 +62,11 @@ export class AppElement extends HTMLElement {
         const btn2 = document.getElementById(
           'control-two'
         ) as HTMLButtonElement;
+        const sample = document.getElementById('sample') as HTMLDivElement;
 
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(btn);
         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(btn2);
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(sample);
 
         let markerEnabled = false;
 
@@ -86,6 +88,15 @@ export class AppElement extends HTMLElement {
             });
           }
         });
+
+        const drawingManager = new google.maps.drawing.DrawingManager({
+          drawingMode: null,
+          drawingControl: true,
+          drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+          },
+        });
+        drawingManager.setMap(map);
       })
       .catch((e) => {
         // do something
@@ -99,6 +110,10 @@ export class AppElement extends HTMLElement {
       <button class="control" id="control-two">
         Add marker
       </button>
+      <div id="sample">
+        <p>Here we could add a legend, or a description of our map, or our social links, or anything else you want.
+        It's just an HTML element placed on our map
+      </div>
       `;
   }
 }

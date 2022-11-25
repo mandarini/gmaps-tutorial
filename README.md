@@ -8,3 +8,4 @@
 4. [Step 03](docs/Step03.md)
 5. [Step 04](docs/Step04.md)
 6. [Step 05](docs/Step05.md)
+7. [Step 06](docs/Step06.md)
