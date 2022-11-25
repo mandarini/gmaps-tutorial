@@ -41,12 +41,24 @@ export class AppElement extends HTMLElement {
 
         map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
+
+        const btn = document.getElementById('control-one') as HTMLImageElement;
+        btn.addEventListener('click', () => {
+          map.setZoom(8);
+          map.setCenter({ lat: 37.7749, lng: 23 });
+        });
+
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(btn);
       })
       .catch((e) => {
         // do something
       });
+
     this.innerHTML = `
       <div id="map"></div>
+      <button class="control" id="control-one"> 
+        Show Greece
+      </button>
       `;
   }
 }
