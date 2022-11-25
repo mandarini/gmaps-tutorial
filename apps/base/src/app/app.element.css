@@ -2,3 +2,14 @@
   height: 100vh;
   width: 100vw;
 }
+
+.control {
+  display: flex;
+  flex-direction: row;
+  padding-right: 8px;
+  padding-top: 8px;
+  background-color: lightcoral;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
