@@ -16,6 +16,7 @@ export class AppElement extends HTMLElement {
         lng: 0,
       },
       zoom: 4,
+      mapId: 'IDd660c40670540313',
     };
 
     loader
