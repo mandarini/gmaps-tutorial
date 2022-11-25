@@ -8,7 +8,7 @@ export class AppElement extends HTMLElement {
     const loader = new Loader({
       apiKey: 'AIzaSyAd1OipGv5JfLsgmMFpXXxnUEcf4Lth8yM',
       version: 'weekly',
-      libraries: ['places'],
+      libraries: ['places', 'drawing'],
     });
 
     loader
@@ -86,6 +86,15 @@ export class AppElement extends HTMLElement {
             });
           }
         });
+
+        const drawingManager = new google.maps.drawing.DrawingManager({
+          drawingMode: null,
+          drawingControl: true,
+          drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+          },
+        });
+        drawingManager.setMap(map);
       })
       .catch((e) => {
         // do something
