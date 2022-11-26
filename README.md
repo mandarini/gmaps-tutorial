@@ -1,4 +1,17 @@
-# TUTORIAL
+# Google Maps Workshop
+
+Welcome to the Google Maps JS Api workshop.
+
+## Who? Me?
+
+Katerina Skroumpelou
+Senior Engineer at [Nx](https://nx.dev)
+
+Info:
+
+- [https://github.com/mandarini](https://github.com/mandarini)
+- [https://twitter.com/psybercity](https://twitter.com/psybercity)
+- [psyber.city](https://psyber.city)
 
 ## Contents
 
@@ -9,3 +22,6 @@
 5. [Step 04](docs/Step04.md)
 6. [Step 05](docs/Step05.md)
 7. [Step 06](docs/Step06.md)
+8. [Step 07](docs/Step07.md)
+9. [Step 08](docs/Step08.md)
+10. [Step 09](docs/Step09.md)
